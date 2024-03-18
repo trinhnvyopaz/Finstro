@@ -1,6 +1,6 @@
 ﻿using Dapper;using Dapper.Contrib.Extensions;
-using System;using System.Collections.Generic;using System.Data;using System.Linq;using System.Linq.Expressions;using System.Reflection;
 using Finstro.Serverless.Dapper.Repository.Extensions;
+using System;using System.Collections.Generic;using System.Data;using System.Linq;using System.Linq.Expressions;using System.Reflection;
 
 namespace Finstro.Serverless.Dapper
 {
