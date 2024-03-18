@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BCAmessage type="REQUEST">
+  <BCAaccess>
+    <BCAaccess-code>%USER%</BCAaccess-code>
+    <BCAaccess-pwd>%PWD%</BCAaccess-pwd>
+  </BCAaccess>
+  <BCAservice>
+    <BCAservice-client-ref>0125370857</BCAservice-client-ref>
+    <BCAservice-code>BCA020</BCAservice-code>
+    <BCAservice-code-version>V00</BCAservice-code-version>
+    <BCAservice-data>
+      <request version="2.0" mode="%MODE%" transaction-reference="ref123">
+        <subscriber-details>
+          <subscriber-identifier>%SUBSCRIBERID%</subscriber-identifier>
+          <security>%CHECKSECURITY%</security>
+        </subscriber-details>
+        <product name="organisation-identification-v2"/>
+        <working-with-organisation search-type="registered-companies-businesses">
+          <australian-business-number>%ABN%</australian-business-number>
+        </working-with-organisation>
+      </request>
+    </BCAservice-data>
+  </BCAservice>
+</BCAmessage>

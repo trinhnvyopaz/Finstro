@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope
+        xmlns:idm="http://vedaxml.com/vxml2/idmatrix-v4-0.xsd"
+        xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:wsa="http://www.w3.org/2005/08/addressing"
+        xmlns:vh="http://vedaxml.com/soap/header/v-header-v1-8.xsd">
+    <soapenv:Header>
+        <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+            <wsse:UsernameToken wsu:Id="UsernameToken-2">
+                <wsse:Username>%USER%</wsse:Username>
+                <wsse:Password>%PWD%</wsse:Password>
+            </wsse:UsernameToken>
+        </wsse:Security>
+        <wsa:ReplyTo>
+            <wsa:Address>http://www.w3.org/2005/08/addressing/anonymous
+            </wsa:Address>
+        </wsa:ReplyTo>
+        <wsa:To>https://ctaau.vedaxml.com/sys2/idmatrix-v4</wsa:To>
+        <wsa:Action>http://vedaxml.com/idmatrix/VerifyIdentity</wsa:Action>
+        <wsa:MessageID>urn:123456</wsa:MessageID>
+    </soapenv:Header>
+    <soapenv:Body>
+        <idm:request client-reference="CID=%CID%;ApplID=%ENQUIRYID%" reason-for-enquiry="Test Request" >
+            <idm:consents>
+              %LICENCECONSENT%
+              %MEDICARECONSENT%
+            </idm:consents>
+            <idm:individual-name>
+                <idm:family-name>%FAMILY%</idm:family-name>
+                <idm:first-given-name>%FIRST%</idm:first-given-name>
+                <idm:other-given-name>%OTHER%</idm:other-given-name>
+            </idm:individual-name>
+            <idm:date-of-birth>%DOB%</idm:date-of-birth>
+            <idm:gender>%GENDER%</idm:gender>
+            <idm:current-address>
+                <idm:unit-number>%UNITNO%</idm:unit-number>
+                <idm:street-number>%STREETNO%</idm:street-number>
+                <idm:street-name>%STREETNAME%</idm:street-name>
+                <idm:street-type>%STREETTYPE%</idm:street-type>
+                <idm:suburb>%SUBURB%</idm:suburb>
+                <idm:state>%STATE%</idm:state>
+                <idm:postcode>%POSTCODE%</idm:postcode>
+            </idm:current-address>
+            <idm:phone>
+                <idm:numbers>
+                    <idm:home-phone-number verify="false">%HOMEPHONE%</idm:home-phone-number>
+                    <idm:mobile-phone-number verify="false">%MOBILEPHONE%</idm:mobile-phone-number>
+                </idm:numbers>
+            </idm:phone>
+            <idm:email-address>%EMAIL%</idm:email-address>
+            %DRIVERSINFO%
+            %MEDICAREINFO%
+        </idm:request>
+    </soapenv:Body>
+</soapenv:Envelope>

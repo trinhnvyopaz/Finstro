@@ -1,0 +1,21 @@
+<com:supplied-director privacy-consent="%PRIVACYCONSENT%"> 
+		<com:individual-name> 
+			<com:family-name>%FAMILYNAME%</com:family-name> 
+			<com:first-given-name>%FIRSTNAME%</com:first-given-name> 
+			<com:other-given-name></com:other-given-name> 
+	    </com:individual-name> 
+	    <com:drivers-licence-number>%DLNO%</com:drivers-licence-number>
+	    <com:gender>%GENDER%</com:gender> 
+	    <com:date-of-birth>%DOB%</com:date-of-birth> 
+	    <com:address> 
+		    <com:property></com:property> 
+			<com:unit-number>%UNITNUMBER%</com:unit-number> 
+			<com:street-number>%STREETNUMBER%</com:street-number> 
+			<com:street-name>%STREETNAME%</com:street-name> 
+			<com:street-type>%STREETTYPE%</com:street-type> 
+			<com:suburb>%SUBURB%</com:suburb> 
+			<com:state>%STATE%</com:state> 
+			<com:postcode>%POSTCODE%</com:postcode> 
+			<com:country>AUS</com:country>
+	    </com:address> 
+</com:supplied-director>

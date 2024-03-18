@@ -1,0 +1,47 @@
+<soapenv:Envelope xmlns:com="http://vedaxml.com/vxml2/company-trading-history-v3-2.xsd" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:vh="http://vedaxml.com/soap/header/v-header-v1-9.xsd" xmlns:wsa="http://www.w3.org/2005/08/addressing">
+  <soapenv:Header>
+    <wsse:Security mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+      <wsse:UsernameToken>
+        <wsse:Username>%USER%</wsse:Username>
+        <wsse:Password>%PWD%</wsse:Password>
+      </wsse:UsernameToken>
+    </wsse:Security>
+    <wsa:MessageID>urn:example.com:123456789</wsa:MessageID>
+    <wsa:To>https://vedaxml.com/sys2/company-trading-history-v3</wsa:To>
+    <wsa:Action>http://vedaxml.com/companyTradingHistory/ServiceRequest</wsa:Action>
+  </soapenv:Header>
+  <soapenv:Body>
+    <com:request client-reference="client-reference-001" enquiry-id="enquiry-id" reason-for-enquiry="reason-enquiry" request-type="REPORT">
+      <com:subject role="joint">
+        <com:australian-company-number>%ORGNO%</com:australian-company-number>
+        <com:supplied-director privacy-consent="yes">
+          <com:individual-name>
+            <com:family-name>%FAMILY%</com:family-name>
+            <com:first-given-name>%FIRST%</com:first-given-name>
+          </com:individual-name>
+          <com:gender>%GENDER%</com:gender>
+          <com:date-of-birth>%DOB%</com:date-of-birth>
+          <com:address>
+            <com:unit-number>%UNITNO%</com:unit-number>
+            <com:street-number>%STREETNO%</com:street-number>
+            <com:street-name>%STREETNAME%</com:street-name>
+            <com:street-type>%STREETTYPE%</com:street-type>
+            <com:suburb>%SUBURB%</com:suburb>
+            <com:state>%STATE%</com:state>
+            <com:postcode>%POSTCODE%</com:postcode>
+          </com:address>
+        </com:supplied-director>
+      </com:subject>
+      <com:current-historic-flag>current</com:current-historic-flag>
+      <com:enquiry type="credit-enquiry">
+        <com:account-type code="%ACCOUNT_TYPE_CODE%">%ACCOUNT_TYPE_NAME%</com:account-type>
+        <com:enquiry-amount currency-code="AUD">%AMOUNT%</com:enquiry-amount>
+      </com:enquiry>
+      <com:collateral-information>
+        <com:credit-type>COMMERCIAL</com:credit-type>
+        <com:link-limit>9999</com:link-limit>
+        <com:ppsr-required>yes</com:ppsr-required>
+      </com:collateral-information>
+    </com:request>
+  </soapenv:Body>
+</soapenv:Envelope>

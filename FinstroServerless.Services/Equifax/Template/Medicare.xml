@@ -1,0 +1,7 @@
+<idm:medicare>
+    <idm:card-number>%CARDNUMBER%</idm:card-number>
+    <idm:reference-number>%REFERENCENUMBER%</idm:reference-number>
+    <idm:middle-name-on-card>%MIDDLENAME%</idm:middle-name-on-card>
+    <idm:date-of-expiry>%EXPIRY%</idm:date-of-expiry>
+    <idm:card-colour>%CARDCOLOR%</idm:card-colour>
+</idm:medicare>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BCAmessage type="REQUEST">
+    <BCAaccess>
+        <BCAaccess-code>F1I6R8S7T2</BCAaccess-code>
+        <BCAaccess-pwd>C8L5A6S8S2</BCAaccess-pwd>
+    </BCAaccess>
+    <BCAservice>
+        <BCAservice-client-ref>1525245245</BCAservice-client-ref>
+        <BCAservice-code>BCA020</BCAservice-code>
+        <BCAservice-code-version>V00</BCAservice-code-version>
+        <BCAservice-data>
+            <request version="2.0" mode="production" transaction-reference="String">
+                <subscriber-details>
+                    <subscriber-identifier>AZH70001</subscriber-identifier>
+                    <security>BB</security>
+                </subscriber-details>
+                <product name="%PRODUCT%" />
+                <working-with-organisation search-type="registered-companies-businesses">
+                    <organisation-number>%ACN%</organisation-number>
+                </working-with-organisation>
+            </request>
+        </BCAservice-data>
+    </BCAservice>
+</BCAmessage>

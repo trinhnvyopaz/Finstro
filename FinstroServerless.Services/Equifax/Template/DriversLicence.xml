@@ -1,0 +1,6 @@
+<idm:drivers-licence-details>
+    <idm:state-code>%STATE%</idm:state-code>
+    <idm:number>%LICENCENUMBER%</idm:number>
+    <idm:date-of-expiry>%EXPIRY%</idm:date-of-expiry>
+    <idm:card-number>%CARDNUMBER%</idm:card-number>
+</idm:drivers-licence-details>

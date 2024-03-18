@@ -1,0 +1,64 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Audit.NET.DynamoDB" Version="14.7.0" />
+    <PackageReference Include="AWSSDK.CognitoIdentityProvider" Version="3.3.102.53" />
+    <PackageReference Include="AWSSDK.Core" Version="3.3.103.42" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3-beta1" />
+    <PackageReference Include="AWSSDK.SimpleEmail" Version="3.3.101.49" />
+    <PackageReference Include="AWSSDK.SimpleNotificationService" Version="3.3.101.49" />
+    <PackageReference Include="RestSharp" Version="106.6.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Clients\" />
+    <Folder Include="Email\" />
+    <Folder Include="BankStatement\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Finstro.Serverless.Dapper\Finstro.Serverless.Dapper.csproj" />
+    <ProjectReference Include="..\Finstro.Serverless.Helper\Finstro.Serverless.Helper.csproj" />
+    <ProjectReference Include="..\Finstro.Serverless.Models\Finstro.Serverless.Models.csproj" />
+    <ProjectReference Include="..\Finstro.Serverless.DynamoDB\Finstro.Serverless.DynamoDB.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="CreditApplication\CreditApplicationService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Equifax\Template\AbnRequest.xml" />
+    <None Remove="Equifax\Template\AcnRequest.xml" />
+    <None Remove="Equifax\Template\BusinessTradingHistory.xml" />
+    <None Remove="Equifax\Template\BusinessTradingHistoryRequest.xml" />
+    <None Remove="Equifax\Template\CompanyTradingHistory.xml" />
+    <None Remove="Equifax\Template\CompanyTradingHistoryRequest.xml" />
+    <None Remove="Equifax\Template\Consents.xml" />
+    <None Remove="Equifax\Template\DirectorBlockForCompany.xml" />
+    <None Remove="Equifax\Template\DriversLicence.xml" />
+    <None Remove="Equifax\Template\IDMatrixRequest.xml" />
+    <None Remove="Equifax\Template\IndividualBlockForBusiness.xml" />
+    <None Remove="Equifax\Template\IndividualVedaScoreRequest.xml" />
+    <None Remove="Equifax\Template\Medicare.xml" />
+    <None Remove="Equifax\Template\OrgIdRequest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Equifax\Template\OrgIdRequest.xml" />
+    <EmbeddedResource Include="Equifax\Template\AbnRequest.xml" />
+    <EmbeddedResource Include="Equifax\Template\AcnRequest.xml" />
+    <EmbeddedResource Include="Equifax\Template\BusinessTradingHistory.xml" />
+    <EmbeddedResource Include="Equifax\Template\BusinessTradingHistoryRequest.xml" />
+    <EmbeddedResource Include="Equifax\Template\CompanyTradingHistory.xml" />
+    <EmbeddedResource Include="Equifax\Template\CompanyTradingHistoryRequest.xml" />
+    <EmbeddedResource Include="Equifax\Template\Consents.xml" />
+    <EmbeddedResource Include="Equifax\Template\DirectorBlockForCompany.xml" />
+    <EmbeddedResource Include="Equifax\Template\DriversLicence.xml" />
+    <EmbeddedResource Include="Equifax\Template\IDMatrixRequest.xml" />
+    <EmbeddedResource Include="Equifax\Template\IndividualBlockForBusiness.xml" />
+    <EmbeddedResource Include="Equifax\Template\IndividualVedaScoreRequest.xml" />
+    <EmbeddedResource Include="Equifax\Template\Medicare.xml" />
+  </ItemGroup>
+</Project>

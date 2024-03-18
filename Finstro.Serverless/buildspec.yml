@@ -1,0 +1,40 @@
+﻿version: 0.2
+phases:
+  install:
+    runtime-versions:
+        dotnet: 2.2
+  build:
+    commands:
+      - aws s3 rm s3://finstroadminapiartifact/FinstroAdminWebApi-DEV --recursive
+      - dotnet restore Finstro.Serverless/Finstro.Serverless.API.csproj
+      - dotnet build Finstro.Serverless/Finstro.Serverless.API.csproj
+      - dotnet publish Finstro.Serverless/Finstro.Serverless.API.csproj -o ./app
+      - mv ./Finstro.Serverless/serverless-DEV.template ./Finstro.Serverless/serverless.template
+      - mv ./Finstro.Serverless/appsettings-DEV.json ./Finstro.Serverless/appsettings.json
+      - cp ./Finstro.Serverless/serverless.template ./Finstro.Serverless/app
+
+      - dotnet tool install --global Swashbuckle.AspNetCore.Cli --version 5.0.0-rc3
+      - export PATH="$PATH:/root/.dotnet/tools" 
+      - cd Finstro.Serverless/app
+      - swagger tofile --output swagger.json Finstro.Serverless.API.dll v1
+      - aws apigateway put-rest-api --rest-api-id 1tqch8hhoh --mode merge --body 'file://swagger.json'
+      - aws apigateway create-deployment --rest-api-id 1tqch8hhoh --stage-name admin
+      
+      #- dotnet tool install --global Swashbuckle.AspNetCore.Cli --version 5.0.0-rc3
+      #- export PATH="$PATH:/root/.dotnet/tools" 
+      #- cd Finstro.Serverless/app
+      #- swagger tofile --output swagger.json Finstro.Serverless.API.dll v1
+      #- aws apigateway put-rest-api --rest-api-id o3b4l28kee --mode merge --body 'file://swagger.json'
+      #- aws apigateway create-deployment --rest-api-id o3b4l28kee --stage-name admin
+
+  post_build:
+    commands:
+      - echo Updating Lambda Code .....
+      - aws lambda update-function-code --function-name FinstroAdminApiStack-DEV-AspNetCoreFunction-EZD4WZ6AOMOM --s3-bucket finstroadminapiartifact --s3-key FinstroAdminWebApi-DEV
+artifacts:
+  files:
+    - '**/*'
+  name: FinstroAdminWebApi
+  base-directory: 'Finstro.Serverless/app'
+
+  

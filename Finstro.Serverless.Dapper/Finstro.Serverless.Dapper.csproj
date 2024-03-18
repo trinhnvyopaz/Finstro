@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.4" />
+    <PackageReference Include="Dapper.Contrib" Version="2.0.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="Z.Dapper.Plus" Version="1.6.8" />
+    <PackageReference Include="MySql.Data" Version="8.0.17" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Repository\" />
+    <Folder Include="Repository\Extensions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Finstro.Serverless.Models\Finstro.Serverless.Models.csproj" />
+    <ProjectReference Include="..\Finstro.Serverless.Helper\Finstro.Serverless.Helper.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:vh="http://vedaxml.com/soap/header/v-header-v1-10.xsd" xmlns:ved="http://vedaxml.com/vxml2/vedascore-apply-v2-0.xsd">
+    <soapenv:Header xmlns:wsa="http://www.w3.org/2005/08/addressing">
+        <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+            <wsse:UsernameToken>
+                <wsse:Username>%USER%</wsse:Username>
+                <wsse:Password>%PWD%</wsse:Password>
+            </wsse:UsernameToken>
+        </wsse:Security>
+        <wsa:To>https://vedaxml.corp.dmz/sys2/soap11/vedascore-apply-2-0</wsa:To>
+        <wsa:Action>http://vedaxml.com/vedascore-apply/EnquiryRequest</wsa:Action>
+    </soapenv:Header>
+    <soapenv:Body>
+        <vs:request xmlns:vs="http://vedaxml.com/vxml2/vedascore-apply-v2-0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://vedaxml.com/vxml2/vedascore-apply-v2-0.xsd ..\vedascore-apply-v2-0-5.xsd">
+            <vs:enquiry-header>
+                <vs:client-reference>client-reference-001</vs:client-reference>
+                <vs:permission-type-code>%PERMISSION_TYPE_CODE%</vs:permission-type-code>
+                <vs:product-data-level-code>N</vs:product-data-level-code>
+                <vs:requested-scores>
+                    <vs:scorecard-id>%SCORECARD_ID%</vs:scorecard-id>
+                </vs:requested-scores>
+            </vs:enquiry-header>
+            <vs:enquiry-data>
+                <vs:individual>
+                    <vs:current-name>
+                        <vs:family-name>%FAMILY%</vs:family-name>
+                        <vs:first-given-name>%FIRST%</vs:first-given-name>
+                    </vs:current-name>
+                    <vs:addresses>
+                        <vs:address type="C">
+                            <vs:unit-number>%UNITNO%</vs:unit-number>
+                            <vs:street-number>%STREETNO%</vs:street-number>
+                            <vs:street-name>%STREETNAME%</vs:street-name>
+                            <vs:street-type>%STREETTYPE%</vs:street-type>
+                            <vs:suburb>%SUBURB%</vs:suburb>
+                            <vs:state>%STATE%</vs:state>
+                            <vs:postcode>%POSTCODE%</vs:postcode>
+                        </vs:address>
+                    </vs:addresses>
+                    <vs:drivers-licence>
+                        <vs:number>%LICENCE%</vs:number>
+                    </vs:drivers-licence>
+                    <vs:gender-code>%GENDER%</vs:gender-code>
+                    <vs:date-of-birth>%DOB%</vs:date-of-birth>
+                </vs:individual>
+                <vs:enquiry>
+                    <vs:account-type-code>%ACCOUNT_TYPE_CODE%</vs:account-type-code>
+                    <vs:enquiry-amount currency-code="AUD">0</vs:enquiry-amount>
+                    <vs:is-credit-review>false</vs:is-credit-review>
+                    <vs:relationship-code>1</vs:relationship-code>
+                </vs:enquiry>
+            </vs:enquiry-data>
+        </vs:request>
+    </soapenv:Body>
+</soapenv:Envelope>

@@ -1,0 +1,34 @@
+<soapenv:Envelope xmlns:bus="http://vedaxml.com/vxml2/business-trading-history-v3-2.xsd" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:vh="http://vedaxml.com/soap/header/v-header-v1-9.xsd" xmlns:wsa="http://www.w3.org/2005/08/addressing">
+    <soapenv:Header>
+        <wsse:Security mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+            <wsse:UsernameToken>
+                <wsse:Username>%USER%</wsse:Username>
+                <wsse:Password>%PWD%</wsse:Password>
+            </wsse:UsernameToken>
+        </wsse:Security>
+        <wsa:MessageID>urn:example.com:123456789</wsa:MessageID>
+        <wsa:To>https://vedaxml.com/sys2/business-trading-history-v3-2</wsa:To>
+        <wsa:Action>http://vedaxml.com/businessTradingHistory/ServiceRequest</wsa:Action>
+    </soapenv:Header>
+    <soapenv:Body>
+        <bus:request client-reference="client-reference-001" reason-for-enquiry="reason-enquiry" enquiry-id="enquiry-id" request-type="REPORT">
+            <bus:subject role="joint">
+                <bus:veda-business-name-id>%ASIC-NNI%</bus:veda-business-name-id>
+                <bus:business-registration-number>
+                    <bus:state>%BUSREGSTATE%</bus:state>
+                    <bus:number>%BUSREGNO%</bus:number>
+                </bus:business-registration-number>
+                <bus:extract-type>current</bus:extract-type>
+                %INDIVIDUAL%
+            </bus:subject>
+            <bus:enquiry type="credit-enquiry">
+                <bus:account-type code="%ACCOUNT_TYPE_CODE%">%ACCOUNT_TYPE_NAME%</bus:account-type>
+                <bus:enquiry-amount currency-code="AUD">0</bus:enquiry-amount>
+            </bus:enquiry>
+            <bus:collateral-information>
+                <bus:credit-type>COMMERCIAL</bus:credit-type>
+                <bus:link-limit>1000</bus:link-limit>
+            </bus:collateral-information>
+        </bus:request>
+    </soapenv:Body>
+</soapenv:Envelope>

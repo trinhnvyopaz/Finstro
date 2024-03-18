@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Finstro.Serverless.Helper\Finstro.Serverless.Helper.csproj" />
+    <ProjectReference Include="..\FinstroServerless.Services\FinstroServerless.Services.csproj" />
+  </ItemGroup>
+
+</Project>

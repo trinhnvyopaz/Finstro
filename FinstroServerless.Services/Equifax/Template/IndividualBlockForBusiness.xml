@@ -1,0 +1,21 @@
+<bus:supplied-proprietor privacy-consent="%PRIVACYCONSENT%">
+    <bus:individual-name>
+        <bus:family-name>%FAMILYNAME%</bus:family-name>
+        <bus:first-given-name>%FIRSTNAME%</bus:first-given-name>
+        <bus:other-given-name></bus:other-given-name>
+    </bus:individual-name>
+    <bus:drivers-licence-number>%DLNO%</bus:drivers-licence-number>
+    <bus:gender>%GENDER%</bus:gender>
+    <bus:date-of-birth>%DOB%</bus:date-of-birth>
+    <bus:address>
+        <bus:property></bus:property>
+        <bus:unit-number>%UNITNUMBER%</bus:unit-number>
+        <bus:street-number>%STREETNUMBER%</bus:street-number>
+        <bus:street-name>%STREETNAME%</bus:street-name>
+        <bus:street-type>%STREETTYPE%</bus:street-type>
+        <bus:suburb>%SUBURB%</bus:suburb>
+        <bus:state>%STATE%</bus:state>
+        <bus:postcode>%POSTCODE%</bus:postcode>
+        <bus:country>AUS</bus:country>
+    </bus:address>
+</bus:supplied-proprietor>
